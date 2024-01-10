@@ -82,15 +82,79 @@
 
 //promise的错误处理
 
-console.log('start');
-new Promise(resolve => {
-    setTimeout(() => {
-        throw new Error('bye bye!');
-    }, 3000);
-})
-    .then(value => {
-        console.log(value + '' + world);
+// console.log('start');
+// new Promise(resolve => {
+//     setTimeout(() => {
+//         throw new Error('bye bye!');
+//     }, 3000);
+// })
+//     .then(value => {
+//         console.log(value + '' + world);
+//     })
+//     .catch(error => {
+//         console.log('Error:', error.message);
+//     })
+
+//百度前端技术学院练习题promise
+
+//one
+// const randomSleep = () => {
+//     return new Promise((resolve => {
+//         const randomTime = Math.floor(Math.random() * 10000) + 1000;
+//         setTimeout(() => {
+//             resolve();
+//         }, randomTime);
+//     }))
+// };
+
+// //测试用例
+
+// console.log("STEP 1");
+// randomSleep().then(() => {
+//     // randomSleep（）函数执行完毕才打印 B
+//     console.log("STEP 2");
+// });
+// console.log("STEP 3");
+
+
+//two
+
+
+const fakeFetchWeather = (endpoint) => {
+    // TODO: 实现模拟获取天气信息
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (endpoint === "beijing") {
+                resolve(
+                    {
+                        city: "beijing",
+                        temperature: 2
+                    }
+                );
+            } else {
+                reject('接口信息错误');
+            }
+        }, 1000);
     })
-    .catch(error => {
-        console.log('Error:', error.message);
+
+
+};
+
+// 测试用例
+fakeFetchWeather("beijing")
+    .then((data) => {
+        console.log(data);
     })
+    .catch((error) => {
+        console.error(error);
+    });
+//{ city:"beijing", temperature: 2}
+
+fakeFetchWeather("Paris")
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+//接口信息错误
