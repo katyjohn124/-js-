@@ -5,10 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>初级实战js</title>
+    <link rel="stylesheet" href="./exchange.css">
 </head>
 
 <body>
+    <div class="container">
+        <h1>汇率计算器</h1>
+        输入金额
+        <input type="number" id="money" placeholder="输入金额" />
+        基础货币
+        <select id="from-money"></select>
+        目标货币
+        <select id="to-money"></select>
+        <p id="result"></p>
 
+        <button id="exchange">获取汇率</button>
+
+    </div>
 
 
     <script src="./fetchapi.js"></script>
